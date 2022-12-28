@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { addSeatAction } from "../store/actions/seatAction";
 
 class Seat extends Component {
   mappingClass = (seat) => {
@@ -16,10 +17,7 @@ class Seat extends Component {
     return "ghe";
   };
   addSeat = (seat) => {
-    this.props.dispatch({
-      type: "ADD_SEAT",
-      payload: seat,
-    });
+    this.props.dispatch(addSeatAction(seat));
   };
   render() {
     const { soGhe, daDat } = this.props.seat;

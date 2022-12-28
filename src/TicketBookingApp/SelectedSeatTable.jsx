@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { removeSeatAction } from "../store/actions/seatAction";
 
 class SelectedSeatTable extends Component {
   removeSeat = (seat) => {
-    this.props.dispatch({
-      type: "REMOVE_SEAT",
-      payload: seat,
-    });
+    this.props.dispatch(removeSeatAction(seat));
   };
   renderSelectedSeats = () => {
     return this.props.selectedSeats.map((element) => {
