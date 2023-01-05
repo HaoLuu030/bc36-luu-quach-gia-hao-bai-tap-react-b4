@@ -24,6 +24,8 @@ export const seatReducer = (state = DEFAULT_STATE, action) => {
       state.selectedSeats = data;
       break;
     }
+    default:
+      break;
   }
   return { ...state };
 };

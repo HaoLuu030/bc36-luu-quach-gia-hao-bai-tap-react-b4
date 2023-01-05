@@ -27,6 +27,10 @@ class SelectedSeatTable extends Component {
     });
   };
   render() {
+    const totalPrice = this.props.selectedSeats.reduce((total, element) => {
+      total += element.gia;
+      return total;
+    }, 0);
     return (
       <div className="mt-5">
         <table className="table text-light" border={2} style={{ fontSize: 15 }}>
@@ -37,7 +41,13 @@ class SelectedSeatTable extends Component {
               <th>Cancel</th>
             </tr>
           </thead>
-          <tbody>{this.renderSelectedSeats()}</tbody>
+          <tbody>
+            {this.renderSelectedSeats()}
+            <tr>
+              <td>Total</td>
+              <td colSpan={2}>{totalPrice}</td>
+            </tr>
+          </tbody>
         </table>
       </div>
     );
